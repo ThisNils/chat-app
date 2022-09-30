@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-const BACKEND_URL = window.location.hostname === 'localhost' ? 'http://localhost:3001' : '';
+const BACKEND_URL = window.location.hostname === 'localhost'
+  ? 'http://localhost:3001' : `https://${window.location.host}`;
 
 const Message = (msg: string, key: number) => {
   const [, author, content] = msg.match(/\[(.+)\] (.+)/) || [];
