@@ -1,0 +1,85 @@
+body {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+.app {
+  height: 100vh;
+  background-color: #13151a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat {
+  background-color: #272b35;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0;
+  margin-top: -8px;
+}
+
+.messageBox {
+  width: 500px;
+  height: 300px;
+  overflow: scroll;
+  background-color: #3d4351;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.messageSendBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.messageInput {
+  background-color: #3d4351;
+  border: none;
+  border-radius: 5px;
+  height: 20px;
+  color: white;
+  margin-right: 5px;
+  width: 443px;
+}
+
+.messageInput:focus {
+  outline: none;
+}
+
+.messageSendButton {
+  background-color: #3d4351;
+  border: none;
+  border-radius: 5px;
+  height: 20px;
+  color: white;
+  margin-left: 5px;
+}
+
+.message {
+  background-color: #505766;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.messageAuthor {
+  color: #d2d2d2;
+  margin: 10px;
+  font-size: 0.8em;
+}
+
+.messageContent {
+  margin: 10px;
+  margin-top: -3px;
+}
