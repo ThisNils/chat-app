@@ -44,6 +44,8 @@ class HttpServer {
         this.wsServer.clients.forEach((c) => c.send(message.toString()));
       });
     });
+
+    this.server.use(express.static('../frontend/build'));
   }
 
   private listen() {
