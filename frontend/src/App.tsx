@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+const BACKEND_URL = window.location.hostname === 'localhost' ? 'http://localhost:3001' : '';
+
 const Message = (msg: string, key: number) => {
   const [, author, content] = msg.match(/\[(.+)\] (.+)/) || [];
 
@@ -11,7 +13,7 @@ const Message = (msg: string, key: number) => {
   );
 };
 
-window.ws = new WebSocket('ws://localhost:3001/ws');
+window.ws = new WebSocket(`${BACKEND_URL.replace('http', 'ws')}/ws`);
 
 function App() {
   const [messages, setMessages] = useState<string[]>([]);
@@ -37,7 +39,7 @@ function App() {
   }, [messages]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/chatHistory')
+    fetch(`${BACKEND_URL}/api/chatHistory`)
       .then((res) => res.json())
       .then((data) => {
         setMessages(data.messages);
@@ -72,7 +74,12 @@ function App() {
           {messages.map(Message)}
         </div>
         <div className="messageSendBox">
-          <input className="messageInput" id="messageInput" onKeyDown={(e) => e.key === 'Enter' ? onMessageSend() : null}></input>
+          <input
+            className="messageInput"
+            id="messageInput"
+            onKeyDown={(e) => e.key === 'Enter' ? onMessageSend() : null}
+            placeholder="Type something..."
+          />
           <button className="messageSendButton" onClick={onMessageSend}>Send</button>
         </div>
       </div>
